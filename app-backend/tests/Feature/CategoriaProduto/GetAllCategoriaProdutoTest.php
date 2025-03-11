@@ -19,7 +19,7 @@ class GetAllCategoriaProdutoTest extends TestCase
 
     public function test_get_all_categoria_produto()
     {
-        $responseCreate = $this->postJson('/api/categorias-produtos', [
+        $responseCreate = $this->postJson('/api/categorias', [
             'nome_categoria' => 'Eletrodomésticos'
         ]);
 
@@ -27,7 +27,7 @@ class GetAllCategoriaProdutoTest extends TestCase
 
         $newCategory = $responseCreate->json('data');
 
-        $response = $this->getJson('/api/categorias-produtos');
+        $response = $this->getJson('/api/categorias');
 
         $response->assertStatus(200);
 

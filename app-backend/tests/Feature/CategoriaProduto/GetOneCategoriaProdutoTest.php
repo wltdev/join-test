@@ -19,7 +19,7 @@ class GetOneCategoriaProdutoTest extends TestCase
 
     public function test_get_one_categoria_produto()
     {
-        $responseCreate = $this->postJson('/api/categorias-produtos', [
+        $responseCreate = $this->postJson('/api/categorias', [
             'nome_categoria' => 'Eletrodomésticos'
         ]);
 
@@ -27,7 +27,7 @@ class GetOneCategoriaProdutoTest extends TestCase
 
         $newCategory = $responseCreate->json('data');
 
-        $response = $this->getJson('/api/categorias-produtos/' . $newCategory['id_categoria_planejamento']);
+        $response = $this->getJson('/api/categorias/' . $newCategory['id_categoria_planejamento']);
 
         $response->assertStatus(200);
 
@@ -42,7 +42,7 @@ class GetOneCategoriaProdutoTest extends TestCase
 
     public function test_get_one_categoria_produto_with_invalid_id()
     {
-        $response = $this->getJson('/api/categorias-produtos/1');
+        $response = $this->getJson('/api/categorias/1');
 
         $response->assertStatus(404);
         $response->assertJson([

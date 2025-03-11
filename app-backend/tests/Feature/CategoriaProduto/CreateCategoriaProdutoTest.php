@@ -19,7 +19,7 @@ class CreateCategoriaProdutoTest extends TestCase
 
     public function test_create_categoria_produto()
     {
-        $response = $this->postJson('/api/categorias-produtos', [
+        $response = $this->postJson('/api/categorias', [
             'nome_categoria' => 'Eletrodomésticos'
         ]);
 
@@ -39,7 +39,7 @@ class CreateCategoriaProdutoTest extends TestCase
 
     public function test_create_categoria_produto_with_invalid_data()
     {
-        $response = $this->postJson('/api/categorias-produtos', [
+        $response = $this->postJson('/api/categorias', [
             'nome_categoria_invalid' => 'value'
         ]);
 

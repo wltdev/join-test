@@ -20,7 +20,7 @@ class UpdateProdutoTest extends TestCase
     public function test_update_produto()
     {
         // create category first
-        $responseCreate = $this->postJson('/api/categorias-produtos', [
+        $responseCreate = $this->postJson('/api/categorias', [
             'nome_categoria' => 'Eletrodomésticos'
         ]);
 

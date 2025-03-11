@@ -19,7 +19,7 @@ class DeleteCategoriaProdutoTest extends TestCase
 
     public function test_delete_categoria_produto()
     {
-        $responseCreate = $this->postJson('/api/categorias-produtos', [
+        $responseCreate = $this->postJson('/api/categorias', [
             'nome_categoria' => 'Eletrodomésticos'
         ]);
 
@@ -27,7 +27,7 @@ class DeleteCategoriaProdutoTest extends TestCase
 
         $newCategory = $responseCreate->json('data');
 
-        $response = $this->deleteJson('/api/categorias-produtos/' . $newCategory['id_categoria_planejamento']);
+        $response = $this->deleteJson('/api/categorias/' . $newCategory['id_categoria_planejamento']);
 
         $response->assertStatus(200);
 

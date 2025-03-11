@@ -20,7 +20,7 @@ class GetOneProdutoTest extends TestCase
     public function test_get_one_produto()
     {
         // create category first
-        $responseCreate = $this->postJson('/api/categorias-produtos', [
+        $responseCreate = $this->postJson('/api/categorias', [
             'nome_categoria' => 'Eletrodomésticos'
         ]);
 
