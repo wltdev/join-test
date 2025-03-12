@@ -109,7 +109,7 @@ export function ProdutoModal({ open, onClose, onSubmit, initialData, categorias 
               type='number'
               id='valor_produto'
               min='0'
-              step='0.01'
+              step='1'
               value={formData.valor_produto}
               onChange={e => setFormData({ ...formData, valor_produto: Number(e.target.value) })}
               className='mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
@@ -123,7 +123,15 @@ export function ProdutoModal({ open, onClose, onSubmit, initialData, categorias 
             <select
               id='categoria'
               value={formData.id_categoria_produto}
-              onChange={e => setFormData({ ...formData, id_categoria_produto: Number(e.target.value), categoria_produto: categorias.find(categoria => categoria.id_categoria_planejamento === Number(e.target.value)) })}
+              onChange={e =>
+                setFormData({
+                  ...formData,
+                  id_categoria_produto: Number(e.target.value),
+                  categoria_produto: categorias.find(
+                    categoria => categoria.id_categoria_planejamento === Number(e.target.value)
+                  )
+                })
+              }
               className='mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
             >
               <option value='0'>Selecione uma categoria</option>
