@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:18
 
 WORKDIR /usr/app
 
@@ -8,7 +8,7 @@ COPY package*.json ./
 # Install dependencies with npm retry settings
 RUN npm set progress=false && \
     npm config set registry https://registry.npmjs.org/ && \
-    npm install --no-audit
+    npm install --no-audit --legacy-peer-deps
 
 # Copy source files
 COPY . .

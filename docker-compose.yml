@@ -54,25 +54,19 @@ services:
     ports:
       - "6380:6379"
 
-  # frontend:
-  #   container_name: join-frontend
-  #   build:
-  #     context: ./app-frontend
-  #     dockerfile: Dockerfile
-  #   environment:
-  #     - WATCHPACK_POLLING=true
-  #     - NODE_ENV=development
-  #     - NEXT_PUBLIC_PRO_URL=http://localhost:3000
-  #     - NEXT_PUBLIC_REPO_NAME=join-challenge
-  #     - NEXT_PUBLIC_DOCS_URL=http://localhost:3000/docs
-  #   ports:
-  #     - 3000:3000
-  #   stdin_open: true
-  #   volumes:
-  #     - "./app-frontend:/usr/app:delegated"
-  #     - /usr/app/node_modules/
-  #   networks:
-  #     - app
+  frontend:
+    container_name: join-frontend
+    build:
+      context: ./app-frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    stdin_open: true
+    volumes:
+      - "./app-frontend:/usr/app:delegated"
+      - /usr/app/node_modules/
+    networks:
+      - app
 
 networks:
   app:
